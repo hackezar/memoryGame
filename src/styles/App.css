@@ -1,0 +1,51 @@
+:root {
+  --titleHeight: 4rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  min-height: 500px;
+  min-width: 270px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  height: var(--titleHeight);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  padding-top: var(--titleHeight)
+
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.logo {
+  height: 10vh;
+}

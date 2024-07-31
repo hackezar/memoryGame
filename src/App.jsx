@@ -1,34 +1,50 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react'
+// Components
+import Scoreboard from './Scoreboard'
+import Gameboard from './Gameboard'
+
+//Images
+import Logo from './assets/reardenDigitalLogo.jpg'
+
+import './styles/App.css'
+import './styles/normalize.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+
+  const addCount = () => {
+    setCount(count => count + 1);
+  }
+  useEffect(() => {
+    if (highScore < count)
+      setHighScore(count)
+  }, [count, highScore])
+
+  const resetCount = () => {
+    setCount(0)
+  }
 
   return (
-    <>
+    <div className="app">
+      <header className="title">
+        <div>NFL Memory Game</div>
+        <div>Score points by clicking on an image, but dont click an image more than once</div> 
+      </header>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="main">
+        <Scoreboard count={count} highScore={highScore} />
+        <Gameboard addCount={addCount} resetCount={resetCount}/>        
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <footer className="footer">
+        <div></div>
+        <div>Rearden Digital</div>
+        <img  src={Logo} className="logo"/>
+      </footer>
+    </div>
   )
 }
 
