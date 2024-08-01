@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 // eslint-disable-next-line react/prop-types
 export default function GameCard({teamName, key, handleClick, imgClass="teamImg"}) {
     const [img, setImg] = useState()
-    const [name, setName] = useState()
   
     // Fetch the NFL logo images
     const fetchImage = async () => {
@@ -15,7 +14,6 @@ export default function GameCard({teamName, key, handleClick, imgClass="teamImg"
         }
         const json = await response.json();
         setImg(json.teams[0].strBadge);
-        setName(json.teams[0].strTeam);
       } catch (error) {
         console.error(error.message);
       }
@@ -23,6 +21,7 @@ export default function GameCard({teamName, key, handleClick, imgClass="teamImg"
 
   useEffect(() => {
     fetchImage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let classText = 'boardCard'

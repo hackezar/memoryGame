@@ -12,13 +12,11 @@ export default function Gameboard({addCount, resetCount}) {
     console.log(teamData);
     // finds the selected team on click and runs markSelected function
     const handleClick = (e) => {
-        console.log(teamData)
         const selected = (e.target.closest('.boardCard').innerText);
         const foundTeam = teamData.current.find((team) => team.teamName === selected)
        // Do the following if the Team has already been clicked before
-       console.log(foundTeam)
        if (foundTeam.clicked === true){
-            console.log('already clicked')
+            alert('already clicked! Resetting board')
             // Reset counter in scoreboard
             resetCount()
             // Get a new set of teams and set it in teamdata

@@ -26,23 +26,24 @@ function App() {
     setCount(0)
   }
 
+
   return (
     <div className="app">
-      <header className="title">
-        <div>NFL Memory Game</div>
-        <div>Score points by clicking on an image, but dont click an image more than once</div> 
+      <header className="header">
+        <div className='blank'></div>
+        <div className="plug">Rearden Digital Co.</div>
+        <img  src={Logo} className="logo"/>
       </header>
-      <div>
-        
-      </div>
       <div className="main">
+        <div className="titleDiv">
+          <div className="title">NFL Memory Game</div>
+          <div>Score points by clicking on an team, but dont click a team more than once</div> 
+        </div>
         <Scoreboard count={count} highScore={highScore} />
         <Gameboard addCount={addCount} resetCount={resetCount}/>        
       </div>
       <footer className="footer">
-        <div></div>
-        <div>Rearden Digital</div>
-        <img  src={Logo} className="logo"/>
+        <div><a href="mailto:jackhalcisak@outlook.com">jackhalcisak@outlook.com</a></div>
       </footer>
     </div>
   )
